@@ -1,3 +1,6 @@
+/**
+ * Clase del caballo, hija de la clase Pieza
+ */
 public class Caballo extends Pieza     {
     // ******* CONSTRUCTORES *******
     public Caballo(boolean color, String nombre) {
@@ -6,6 +9,6 @@ public class Caballo extends Pieza     {
 
     // ******* MÉTODOS *******
     public boolean validoMovimiento (Movimiento mov) {
-        return false;
+        return Math.abs(mov.saltoVertical()) == 1 && Math.abs(mov.saltoHorizontal()) == 2 || Math.abs(mov.saltoVertical()) == 2 && Math.abs(mov.saltoHorizontal()) == 1;
     }
 }

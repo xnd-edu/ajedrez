@@ -1,3 +1,6 @@
+/**
+ * Clase de la reina, hija de la clase Pieza
+ */
 public class Reina extends Pieza     {
     // ******* CONSTRUCTORES *******
     public Reina(boolean color, String nombre) {
@@ -6,6 +9,6 @@ public class Reina extends Pieza     {
 
     // ******* MÉTODOS *******
     public boolean validoMovimiento (Movimiento mov) {
-        return false;
+        return mov.esHorizontal() || mov.esVertical() || mov.esDiagonal();
     }
 }

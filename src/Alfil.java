@@ -1,3 +1,6 @@
+/**
+ * Clase del alfil, hija de la clase Pieza
+ */
 public class Alfil extends Pieza     {
     // ******* CONSTRUCTORES *******
     public Alfil(boolean color, String nombre) {
@@ -6,6 +9,6 @@ public class Alfil extends Pieza     {
 
     // ******* MÉTODOS *******
     public boolean validoMovimiento (Movimiento mov) {
-        return false;
+        return mov.esDiagonal();
     }
 }

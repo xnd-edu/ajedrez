@@ -1,3 +1,6 @@
+/**
+ * Clase del tablero, incluye el array con las piezas y métodos para camiarlas.
+ */
 public class Tablero {
     // ******* ATRIBUTOS *******
     Pieza[][] tablero = new Pieza[8][8];
@@ -54,7 +57,7 @@ public class Tablero {
                 }
 
                 if (hayPieza(i,j)) {
-                    System.out.print("\u2006\u2006" + devuelvePieza(i,j).pintarPieza()); // \u2006 es un espacio para centrar las piezas mas
+                    System.out.print("\u2006\u2006" + devuelvePieza(i,j).getNombre()); // \u2006 es un espacio para centrar las piezas mas
                 } else {
                     if ((i + j) % 2 == 0) {
                         System.out.print(" \u25A1"); // Cuadrado blanco

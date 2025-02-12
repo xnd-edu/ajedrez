@@ -1,18 +1,38 @@
+/**
+ * Clase que maneja el sistema de strings traducidos
+ */
 public class Strings {
     private String idioma;
 
+    /**
+     * Constructor del sistema de strings, por defecto el idioma es el inglés.
+     */
     public Strings() {
         this.idioma = "en";
     }
 
+    /**
+     * Devuelve el idioma establecido de los strings
+     * @return Código del idioma (Ej: "en")
+     */
     public String getIdioma() {
         return this.idioma;
     }
 
+    /**
+     * Establece el idioma de los strings
+     * @param idioma Código del idioma (Ej: "en")
+     */
     public void setIdioma(String idioma) {
         this.idioma = idioma;
     }
 
+    /**
+     * Método que devuelve el string indicado en el idioma establecido
+     * @param idioma Idioma establecido (si no se especifica usa el inglés)
+     * @param string El nombre del string que será devuelto
+     * @return String traducido. Si no existe el string devuelve un mensaje indicando que falta localizarlo.
+     */
     public String toString(String idioma, String string) {
         switch (this.idioma) {
             default:

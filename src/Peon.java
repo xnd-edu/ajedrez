@@ -1,3 +1,6 @@
+/**
+ * Clase del peón, hija de la clase Pieza
+ */
 public class Peon extends Pieza     {
     // ******* CONSTRUCTORES *******
     public Peon(boolean color, String nombre) {

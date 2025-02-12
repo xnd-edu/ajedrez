@@ -1,18 +1,39 @@
+/**
+ * Clase que maneja los turnos y las jugadas
+ */
 public class Juego {
     private boolean elTurno; // Como el color de pieza: true = BLANCAS , false = NEGRAS
 
+    /**
+     * Constructor del juego. El turno por defecto es true (blancas).
+     */
     public Juego() {
         this.elTurno = true;
     }
 
+    /**
+     * Devuelve el turno actual
+     * @return El turno (true = turno blancas, false = turno negras)
+     */
     public boolean getTurno() {
         return elTurno;
     }
 
+    /**
+     * Cambia el turno del juego
+     * @param elTurno El turno (true = turno blancas, false = turno negras)
+     */
     public void setTurno(boolean elTurno) {
         this.elTurno = elTurno;
     }
 
+    /**
+     * Método que valida y convierte la jugada introducida por el usuario a un movimiento
+     * @param jugada Coordenadas introducidas por el usuario (Ej: A2B3)
+     * @param tablero Tablero donde se ejecuta la jugada
+     * @param strings Sistema de strings para la localización
+     * @return Movimiento de la pieza. Si el movimiento es nulo es que no es válido.
+     */
     public Movimiento jugada(String jugada, Tablero tablero, Strings strings) {
         Movimiento mov = null;
         String idioma = strings.getIdioma();

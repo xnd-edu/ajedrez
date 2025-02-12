@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Clase donde se ejecuta el juego
+ */
 public class Main {
     public static void main(String[] args) {
         boolean finJuego = false;
