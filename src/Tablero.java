@@ -6,6 +6,9 @@ public class Tablero {
     Pieza[][] tablero = new Pieza[8][8];
 
     // ******* CONSTRUCTORES *******
+    /**
+     * Constructor del tablero. Coloca las piezas en sus respectivas posiciones iniciales.
+     */
     public Tablero() {
         for (int i = 0; i < 8; i++) {
             tablero[1][i] = new Peon(false, "\u265F"); // Peones negros
@@ -40,6 +43,9 @@ public class Tablero {
     }
 
     // ******* MÉTODOS *******
+    /**
+     * Método que imprime el tablero con las piezas en sus posiciones actuales
+     */
     public void pintarTablero() {
         // Imprimir los números de las columnas
         for (int i = 0; i < tablero.length; i++) {
@@ -70,14 +76,30 @@ public class Tablero {
         }
     }
 
+    /**
+     * Comprueba si existe una pieza en una casilla (not null)
+     * @param fila
+     * @param columna
+     * @return true si hay pieza
+     */
     public boolean hayPieza(int fila, int columna) {
         return tablero[fila][columna] != null;
     }
 
+    /**
+     * Comprueba si existe una pieza en una casilla (not null)
+     * @param pos
+     * @return true si hay pieza
+     */
     public boolean hayPieza(Posicion pos) {
         return hayPieza(pos.getFila(), pos.getColumna());
     }
 
+    /**
+     * Método que comprueba si existen piezas dentro del movimiento especificado
+     * @param mov Movimiento
+     * @return true si hay piezas entre la posición inicial y final
+     */
     public boolean hayPiezasEntre(Movimiento mov) {
         boolean piezaDetectada = false;
         int filaInicialMov = mov.posInicial.getFila();
@@ -128,22 +150,48 @@ public class Tablero {
         return piezaDetectada;
     }
 
+    /**
+     * Método que pone una pieza en la casilla especificada
+     * @param figura
+     * @param fila
+     * @param columna
+     */
     public void ponPieza (Pieza figura, int fila, int columna) {
         tablero[fila][columna] = figura;
     }
 
+    /**
+     * Método que pone una pieza en la casilla especificada
+     * @param figura
+     * @param pos
+     */
     public void ponPieza (Pieza figura, Posicion pos) {
         ponPieza(figura, pos.getFila(), pos.getColumna());
     }
 
+    /**
+     * Método que elimina una pieza de la casilla especificada
+     * @param fila
+     * @param columna
+     */
     public void quitaPieza (int fila, int columna) {
         tablero[fila][columna] = null;
     }
 
+    /**
+     * Método que elimina una pieza de la casilla especificada
+     * @param pos
+     */
     public void quitaPieza (Posicion pos) {
         quitaPieza(pos.getFila(), pos.getColumna());
     }
 
+    /**
+     * Método que devuelve la pieza situada en la casilla especificada
+     * @param fila
+     * @param columna
+     * @return La clase Pieza
+     */
     public Pieza devuelvePieza (int fila, int columna) {
         return tablero[fila][columna];
     }
