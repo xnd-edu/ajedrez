@@ -13,9 +13,9 @@ public class Peon extends Pieza {
             return true;
         } else if (mov.esDiagonal()) {
             if (color) {
-                return mov.saltoVertical() == -1;
+                return mov.saltoVertical() == -1 && tablero.hayPieza(mov.posFinal);
             } else {
-                return mov.saltoVertical() == 1;
+                return mov.saltoVertical() == 1 && tablero.hayPieza(mov.posFinal);
             }
         } else
             return mov.esVertical() && (color && mov.saltoVertical() == -1 || !color && mov.saltoVertical() == 1);
