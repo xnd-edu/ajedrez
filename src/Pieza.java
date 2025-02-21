@@ -40,5 +40,5 @@ public abstract class Pieza {
      * @param mov Movimiento
      * @return true si el movimiento es válido
      */
-    public abstract boolean validoMovimiento (Movimiento mov);
+    public abstract boolean validoMovimiento (Movimiento mov, Tablero tablero);
 }

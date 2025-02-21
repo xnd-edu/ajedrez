@@ -31,7 +31,7 @@ public class Movimiento {
      * @return true si el movimiento es vertical
      */
     public boolean esVertical() {
-        return posInicial.getColumna() == posFinal.getColumna() && !esHorizontal();
+        return posInicial.getColumna() == posFinal.getColumna() && !esHorizontal() && !esDiagonal();
     }
 
     /**
@@ -39,7 +39,7 @@ public class Movimiento {
      * @return true si el movimiento es horizontal
      */
     public boolean esHorizontal() {
-        return posInicial.getFila() == posFinal.getFila() && !esVertical();
+        return posInicial.getFila() == posFinal.getFila() && !esVertical() && !esDiagonal();
     }
 
     /**

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         boolean finJuego = false;
-        boolean valido = false;
+        boolean noValido;
         Tablero tablero = new Tablero();
         Juego juego = new Juego();
         Scanner sc = new Scanner(System.in);
@@ -17,11 +17,21 @@ public class Main {
         System.out.println("Choose your language:");
         System.out.println("1. English");
         System.out.println("2. Español (Spanish)");
-        int opcion = sc.nextInt();
-        if (opcion == 1)
-            strings.setIdioma("en");
-        else if (opcion == 2)
-            strings.setIdioma("es");
+        do {
+            noValido = false;
+            int opcion = sc.nextInt();
+            switch (opcion) {
+                case 1:
+                    strings.setIdioma("en");
+                    break;
+                case 2:
+                    strings.setIdioma("es");
+                    break;
+                default:
+                    System.out.println(strings.toString(idioma, "errOpcionNoValida"));
+                    noValido = true;
+            }
+        } while (noValido);
         System.out.println(strings.toString(idioma, "empezarJuego") + "\n");
 
         // Limpiar escáner
@@ -36,7 +46,6 @@ public class Main {
             tablero.pintarTablero();
 
             do {
-                valido = false;
                 System.out.println(strings.toString(idioma, "introduceJugada"));
                 String jugada = sc.nextLine().toUpperCase();
 
@@ -46,14 +55,7 @@ public class Main {
                 }
 
                 mov = juego.jugada(jugada, tablero, strings);
-
-                if (mov != null) {
-                    if ((tablero.hayPiezasEntre(mov) && !tablero.devuelvePieza(mov.posInicial).getNombre().equals("\u265E")) || (tablero.hayPiezasEntre(mov) && !tablero.devuelvePieza(mov.posInicial).getNombre().equals("\u2658")))
-                        System.out.println(strings.toString(idioma, "errPiezasEnMedio"));
-                    else
-                        valido = true;
-                }
-            } while (!valido);
+            } while (mov == null);
 
             tablero.ponPieza(tablero.devuelvePieza(mov.posInicial), mov.posFinal);
             tablero.quitaPieza(mov.posInicial);

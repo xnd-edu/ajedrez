@@ -8,7 +8,7 @@ public class Torre extends Pieza     {
     }
 
     // ******* MÉTODOS *******
-    public boolean validoMovimiento (Movimiento mov) {
+    public boolean validoMovimiento (Movimiento mov, Tablero tablero) {
         return mov.esVertical() || mov.esHorizontal();
     }
 }

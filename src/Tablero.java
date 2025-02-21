@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Clase del tablero, incluye el array con las piezas y métodos para camiarlas.
  */
@@ -51,15 +53,17 @@ public class Tablero {
         for (int i = 0; i < tablero.length; i++) {
             if (i == 0)
                 System.out.print("  \u2006\u2006");
-            System.out.print((i + 1) + "\u2006 ");
+            System.out.print((char) (i + 'A') + "\u2006 ");
         }
         System.out.println();
 
+        int k = 8;
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
                 // Imprimir las letras de las filas
                 if (j == 0) {
-                    System.out.print((char) ('A' + i) + " ");
+                    System.out.print(k + " ");
+                    k--;
                 }
 
                 if (hayPieza(i,j)) {
@@ -145,6 +149,8 @@ public class Tablero {
                 }
                 columnaInicialMov++;
             }
+        } else {
+            piezaDetectada = true;
         }
 
         return piezaDetectada;
@@ -198,5 +204,51 @@ public class Tablero {
 
     public Pieza devuelvePieza (Posicion pos) {
         return devuelvePieza(pos.getFila(), pos.getColumna());
+    }
+
+    public void promocionPeon (Movimiento mov, Strings strings) {
+        boolean noValido;
+        int opcion;
+        boolean color = devuelvePieza(mov.posInicial).getColor();
+        String idioma = strings.getIdioma();
+        Scanner sc = new Scanner(System.in);
+        System.out.println(strings.toString(idioma, "promocionPeon"));
+        do {
+            noValido = false;
+            opcion = sc.nextInt();
+            switch (opcion) {
+                // Reina
+                case 1:
+                    if (color)
+                        tablero[mov.posInicial.getFila()][mov.posInicial.getColumna()] = new Reina(true, "\u2655");
+                    else
+                        tablero[mov.posInicial.getFila()][mov.posInicial.getColumna()] = new Reina(false, "\u265B");
+                    break;
+                // Torre
+                case 2:
+                    if (color)
+                        tablero[mov.posInicial.getFila()][mov.posInicial.getColumna()] = new Torre(true, "\u2656");
+                    else
+                        tablero[mov.posInicial.getFila()][mov.posInicial.getColumna()] = new Torre(false, "\u265C");
+                    break;
+                // Alfil
+                case 3:
+                    if (color)
+                        tablero[mov.posInicial.getFila()][mov.posInicial.getColumna()] = new Alfil(true, "\u2657");
+                    else
+                        tablero[mov.posInicial.getFila()][mov.posInicial.getColumna()] = new Alfil(false, "\u265D");
+                    break;
+                // Caballo
+                case 4:
+                    if (color)
+                        tablero[mov.posInicial.getFila()][mov.posInicial.getColumna()] = new Caballo(true, "\u2658");
+                    else
+                        tablero[mov.posInicial.getFila()][mov.posInicial.getColumna()] = new Caballo(false, "\u265E");
+                    break;
+                default:
+                    System.out.println(strings.toString(idioma, "errOpcionNoValida"));
+                    noValido = true;
+            }
+        } while (noValido);
     }
 }

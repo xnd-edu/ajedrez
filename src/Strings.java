@@ -42,14 +42,14 @@ public class Strings {
                     // Clase main
                     case "empezarJuego":
                         return "Starting game...";
+                    case "errOpcionNoValida":
+                        return "Error: Please choose a valid option.";
                     case "turnoBlancas":
                         return "---------------------------------------\n|             WHITES turn             |\n---------------------------------------";
                     case "turnoNegras":
                         return "---------------------------------------\n|             BLACKS turn             |\n---------------------------------------";
                     case "introduceJugada":
                         return "Introduce move (Example: A2B3):";
-                    case "errPiezasEnMedio":
-                        return "Error: There are pieces in between.";
                     // Clase Juego
                     case "errLongitudJugada":
                         return "Error: The move must have 4 characters. (Example: A2B3)";
@@ -61,6 +61,12 @@ public class Strings {
                         return "Error: That piece does not belong to you.";
                     case "errCanibal":
                         return "Error: You cannot eat your own pieces.";
+                    case "errMovNoValido":
+                        return "Error: The move is not valid.";
+                    case "errPiezasEnMedio":
+                        return "Error: There are pieces in between.";
+                    case "promocionPeon":
+                        return "Which piece do you want to promote to? \n1. Queen \n2. Rook \n3. Bishop \n4. Knight";
                 }
 
             case "es":
@@ -68,14 +74,14 @@ public class Strings {
                     // Clase main
                     case "empezarJuego":
                         return "Empezando el juego...";
+                    case "errOpcionNoValida":
+                        return "Error: Por favor elija una opción valida.";
                     case "turnoBlancas":
                         return "-----------------------------------------\n|             Turno BLANCAS             |\n-----------------------------------------";
                     case "turnoNegras":
                         return "-----------------------------------------\n|             Turno NEGRAS              |\n-----------------------------------------";
                     case "introduceJugada":
                         return "Introduce jugada (Ejemplo: A2B3):";
-                    case "errPiezasEnMedio":
-                        return "Error: Hay piezas en medio.";
                     // Clase Juego
                     case "errLongitudJugada":
                         return "Error: La jugada debe tener 4 caracteres. (Ejemplo: A2B3)";
@@ -87,7 +93,12 @@ public class Strings {
                         return "Error: Esa pieza no te pertenece.";
                     case "errCanibal":
                         return "Error: No puedes comerte tus propias piezas.";
-
+                    case "errMovNoValido":
+                        return "Error: El movimiento no es válido.";
+                    case "errPiezasEnMedio":
+                        return "Error: Hay piezas en medio.";
+                    case "promocionPeon":
+                        return "¿A qué pieza quieres promocionar? \n1. Reina \n2. Torre \n3. Alfil \n4. Caballo";
                 }
         }
         return "STRING NOT LOCALISED";

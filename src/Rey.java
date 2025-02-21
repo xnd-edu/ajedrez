@@ -8,7 +8,7 @@ public class Rey extends Pieza     {
     }
 
     // ******* MÉTODOS *******
-    public boolean validoMovimiento (Movimiento mov) {
+    public boolean validoMovimiento (Movimiento mov, Tablero tablero) {
         return Math.abs(mov.saltoVertical()) == 1 && mov.esVertical() || Math.abs(mov.saltoHorizontal()) == 1 && mov.esHorizontal() || Math.abs(mov.saltoHorizontal()) == 1 && Math.abs(mov.saltoVertical()) == 1;
     }
 }

@@ -8,7 +8,7 @@ public class Alfil extends Pieza     {
     }
 
     // ******* MÉTODOS *******
-    public boolean validoMovimiento (Movimiento mov) {
+    public boolean validoMovimiento (Movimiento mov, Tablero tablero) {
         return mov.esDiagonal();
     }
 }
