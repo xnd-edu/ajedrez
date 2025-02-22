@@ -90,7 +90,8 @@ public class Juego {
                         System.out.println(strings.toString(idioma, "errPiezasEnMedio"));
                         mov = null;
                     }
-                } else if (!tablero.devuelvePieza(posInicial).validoMovimiento(mov, tablero)) {
+                }
+                if (!tablero.devuelvePieza(posInicial).validoMovimiento(mov, tablero)) {
                     System.out.println(strings.toString(idioma, "errMovNoValido"));
                     mov = null;
                 }

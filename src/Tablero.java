@@ -132,25 +132,17 @@ public class Tablero {
                     piezaDetectada = true;
             }
         } else if (mov.esDiagonal()) {
-            if (filaFinalMov < filaInicialMov) {
-                int aux = filaFinalMov;
-                filaFinalMov = filaInicialMov;
-                filaInicialMov = aux;
+            int pasoFila = filaFinalMov > filaInicialMov ? 1 : -1;
+            int pasoColumna = columnaFinalMov > columnaInicialMov ? 1 : -1;
+
+            int fila = filaInicialMov + pasoFila;
+            int columna = columnaInicialMov + pasoColumna;
+
+            while (fila != filaFinalMov && columna != columnaFinalMov) {
+                if (hayPieza(fila, columna)) return true;
+                fila += pasoFila;
+                columna += pasoColumna;
             }
-            if (columnaFinalMov < columnaInicialMov) {
-                int aux = columnaFinalMov;
-                columnaFinalMov = columnaInicialMov;
-                columnaInicialMov = aux;
-            }
-            for (int i = filaInicialMov + 1; i < filaFinalMov; i++) {
-                for (int j = columnaInicialMov + 1; j < columnaFinalMov + 2; j++) {
-                    if (hayPieza(i, j))
-                        piezaDetectada = true;
-                }
-                columnaInicialMov++;
-            }
-        } else {
-            piezaDetectada = true;
         }
 
         return piezaDetectada;
