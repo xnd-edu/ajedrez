@@ -57,8 +57,10 @@ public class Main {
                 mov = juego.jugada(jugada, tablero, strings);
             } while (mov == null);
 
-            tablero.ponPieza(tablero.devuelvePieza(mov.posInicial), mov.posFinal);
-            tablero.quitaPieza(mov.posInicial);
+            if (mov != null) {
+                tablero.ponPieza(tablero.devuelvePieza(mov.posInicial), mov.posFinal);
+                tablero.quitaPieza(mov.posInicial);
+            }
 
             juego.setTurno(!juego.getTurno());
         } while (!finJuego);

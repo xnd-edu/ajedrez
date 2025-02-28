@@ -88,12 +88,12 @@ public class Juego {
                 if ((tablero.hayPiezasEntre(mov))) {
                     if (!(tablero.devuelvePieza(mov.posInicial).getNombre().equals("\u265E") || tablero.devuelvePieza(mov.posInicial).getNombre().equals("\u2658")) ){
                         System.out.println(strings.toString(idioma, "errPiezasEnMedio"));
-                        mov = null;
+                        return null;
                     }
                 }
                 if (!tablero.devuelvePieza(posInicial).validoMovimiento(mov, tablero)) {
                     System.out.println(strings.toString(idioma, "errMovNoValido"));
-                    mov = null;
+                    return null;
                 }
             }
 
